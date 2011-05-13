@@ -1,6 +1,7 @@
 Compiler for the MicroJava programming language, written in Java.
 
-This project is a scholar project.
+NOTE: This is a scholar project. It may contain bugs, and probably won't be
+maintained for long.
 
 The reference for the MicroJava language (as well as the Microjava runtime)
 can be found on the course website:
