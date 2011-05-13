@@ -1,0 +1,29 @@
+program Eratos
+
+	class Test {
+		int t;
+		int[] ts;
+	}
+
+{
+
+	void main()
+		int t;
+		int[] ts;
+		Test[] tests;
+	{
+		t = 42;
+		print(t);
+		ts = new int[1];
+		ts[0] = 42;
+		print(ts[0]);
+		tests = new Test[1];
+		tests[0] = new Test;
+		tests[0].t = 42;
+		print(tests[0].t);
+		tests[0].ts = new int[1];
+		tests[0].ts[0] = 42;
+		print(tests[0].ts[0]);
+	}
+
+}//test

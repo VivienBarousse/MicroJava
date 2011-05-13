@@ -1,0 +1,32 @@
+program P
+	final int size = 10;
+	class Table {
+		int[] pos;
+		int[] neg;
+	}
+	Table val;
+{
+	void main()
+		int x, i;
+	{ //---------- Initialize val
+		val = new Table;
+		val.pos = new int[size]; val.neg = new int[size];
+		i = 0;
+		while (i < size) {
+			val.pos[i] = 0; val.neg[i] = 0;
+			i = i + 1;
+		}
+	//---------- Read values
+		read(x);
+		while (x != 0) {
+			if (x >= 0) {
+				val.pos[x] = val.pos[x] + 1;
+			} else if (x < 0) {
+				val.neg[-x] = val.neg[-x] + 1;
+			}
+			read(x);
+		}
+	}
+
+}
+

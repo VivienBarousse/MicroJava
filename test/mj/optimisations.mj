@@ -1,0 +1,9 @@
+program P
+{
+	void main() 
+	{
+		print(4 + (3 * 3));
+	}
+
+}
+

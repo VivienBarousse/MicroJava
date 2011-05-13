@@ -1,0 +1,89 @@
+// Test input for checking symbol table handling
+//**************************************************
+// invoke as:  java MJ.Compiler SampleSymtabInput.mj
+//**************************************************
+
+program P
+  final int  c1 = 'x';
+//----------------| integer constant expected
+  final char cc = 3;
+//----------------| character constant expected
+
+  class C {
+    int f;
+  }
+
+  int i;
+  char ch;
+  C c, c2;
+  char[] a;
+
+     ch x;
+//---| type expected
+     ch[] y;
+//---| type expected
+  char i;
+//-----| i already declared
+
+{
+  void foo (int x) {
+    return 3;
+//---------| void method must not return a value
+  }
+  
+  int bar (char c) {
+    if (c > 'x') return; else return c;
+//---------------------| return expression expected
+  }
+  
+  int main(int x)
+//| must be void
+//---------| must not have parameters
+  {
+    i = 1;
+    int = 3;
+//--| type identifier not allowed here
+    ch = 3;
+//--------| incompatible types in assignment
+    i = 3 * v + 1;
+//----------| v not found
+    x(3, ch);
+//--| called object is not a method
+    read(foo);
+//--------| read object must be a variable
+    read(c);
+//-------| can only read int or char variables
+    print(c);
+//--------| can only print int or char variables
+    foo(3, i);
+//----------| more actual than formal parameters
+    foo();
+//-------| fewer actual than formal parameters
+    foo('x');
+//------| parameter type mismatch
+    if (i == 'a') i = i + ch; else i = i * ch;
+//------------| type mismatch
+//-------------------------| operands must be of type int
+//------------------------------------------| operands must be on type int
+    if (c > c2) c = - c2;
+//------------| invalid compare
+//---------------------| integer operand required
+    i = ch();
+//------| called object is not a method
+    i = new int;
+//------------| class type expected
+    a = new ch[3];
+//-----------| type expected
+    a = new char['3'];
+//---------------| array size must be an integer
+    i = a.f + 3 * c.g;
+//------| dereferenced object is not a class
+//------------------| g not found
+    i = foo[2];
+//-------| bad method call
+    i = ch[2];
+//----------| indexed object is not an array
+    i = a['2'];
+//----------| index must be an int
+  }
+}

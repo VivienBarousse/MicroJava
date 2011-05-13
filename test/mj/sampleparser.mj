@@ -1,0 +1,42 @@
+// Test input for the MicroJava parser
+//***************************************************
+// invoke as: java MJ.TestParser SampleParserInput.mj
+//***************************************************
+
+program P
+  final int size = 10;
+  class Table 
+//------------| "{" expected
+    int[] pos;
+    int[] neg
+//-----------| ";" expected
+  }
+  Table val;
+{
+  void main()
+    int x, i;
+  { val := new Table;
+//------| invalid assignment or call
+    val.pos = new int[size); val.neg = new int[size];
+//------------------------| "]" expected
+    i = 0;
+    while i < size {
+//--------| "(" expected
+//----------------| ")" expected
+      val.pos[i] = 0; val.neg[i] = 0;
+      i = i + 1;
+    }
+    x = read();
+//------| invalid expression
+    while (x != 0) {
+      if (x >= 0) {
+        val.pos[x] = val pos[x] + 1;
+//----------------------| incompatible type in assigment
+      } else if (x < 0) {
+        val.neg[-x] = val.neg[-x] + 1;
+      }
+      read(x);
+    }
+  }
+}
+
